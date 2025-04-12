@@ -1,0 +1,42 @@
+import java.io.FileInputStream; 
+import java.io.FileNotFoundException; 
+import javafx.application.Application; 
+import javafx.scene.Group; 
+import javafx.scene.Scene; 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;  
+import javafx.stage.Stage;  
+
+public class ResizedImageExample extends Application {  
+   @Override 
+   public void start(Stage stage) throws FileNotFoundException {         
+      //Creating an image 
+	  FileInputStream fis = new FileInputStream("C:/Apache24/htdocs/javafx/images/loading_image.jpg");
+      Image image = new Image(fis, 250, 300, false, false);
+      
+      //Setting the image view 
+      ImageView imageView = new ImageView(image); 
+      
+      //Setting the position of the image 
+      imageView.setX(50); 
+      imageView.setY(25); 
+      
+      //Creating a Group object  
+      Group root = new Group(imageView);  
+      
+      //Creating a scene object 
+      Scene scene = new Scene(root, 600, 500);  
+      
+      //Setting title to the Stage 
+      stage.setTitle("Loading an image");  
+      
+      //Adding scene to the stage 
+      stage.setScene(scene);
+      
+      //Displaying the contents of the stage 
+      stage.show(); 
+   }  
+   public static void main(String args[]) { 
+      launch(args); 
+   } 
+}
